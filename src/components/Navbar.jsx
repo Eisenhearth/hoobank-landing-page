@@ -5,6 +5,8 @@ import { navLinks } from '../constants';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  
+  const handleClose = () => setToggle((prev) => !prev);
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
@@ -31,7 +33,7 @@ const Navbar = () => {
           <ul className="list-none flex flex-col justify-end items-center flex-1">
             {navLinks.map((nav, index) => (
               <li key={nav.id} className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'} text-white`}> 
-              <a href={`#${nav.id}`}>
+              <a href={`#${nav.id}` onClick={handleClose}}>
                 {nav.title}
               </a>
               </li>
